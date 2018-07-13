@@ -1,0 +1,8 @@
+<h2>10 most "popular" devices by date</h2>
+  <h3>Percentage change over 7 days.</h3></a>
+
+<ul>
+  {% for o in occurances[:10] %}
+    <li>{{ o.device_id }}</li>
+  {% endfor %}
+</ul>

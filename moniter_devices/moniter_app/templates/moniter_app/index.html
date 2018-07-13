@@ -1,0 +1,12 @@
+<h1>Monitor Devices</h1>
+
+  <a href="/moniter_app/{{datetime}}/results"><h2>10 most "popular" devices by date</h2>
+    <h3>Percentage change over 7 days.</h3></a>
+
+    <a href="/moniter_app/{{device_id}}/results"><h2>Most popular device by status over 30 days<h2/></a>
+
+    <ul>
+      {% for o in occurances %}
+        <li>{{ o.device_id}} {{ o.status }}</li>
+      {% endfor %}
+    </ul>

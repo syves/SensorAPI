@@ -1,0 +1,7 @@
+<h2>Device {{ device_id }} by status {{ stat }} over 30 days<h2/>
+  <h3>{{ device_id }}</h3>
+  <ul>
+    {% for o in occurances %}
+      <li> Date: {{ o.date}} Count: {{o.dcount }} </li>
+    {% endfor %}
+  </ul>
