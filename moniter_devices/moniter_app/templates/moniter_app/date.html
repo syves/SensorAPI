@@ -2,7 +2,7 @@
   <h3>Percentage change over 7 days.</h3></a>
 
 <ul>
-  {% for o in occurances[:10] %}
-    <li>{{ o.device_id }}</li>
+  {% for device in popular %}
+    <li>{{ device.device_id }} {{device.change}} </li>
   {% endfor %}
 </ul>
