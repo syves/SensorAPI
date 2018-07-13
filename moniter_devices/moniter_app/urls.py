@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    # ex: /polls/5/
-    #path('specifics/<int:device_id>/', views.device, name='device'),
-    # ex: /polls/5/results/
-    #path('<DateTimeField:datetime>', views.date, name='date'),
+    # ex: /moniter_app/device/'bb10684d'/results
+    path('device/<str:device_id>/<str:status>/', views.device, name='device'),
+    # ex: /moniter_app/15/results/
+    path('date/<int:datetime>/', views.date, name='date'),
 ]
