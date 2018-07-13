@@ -4,7 +4,8 @@ import calendar
 import csv
 
 class Occurance(models.Model):
-    datetime    = models.DateTimeField()
+    #should this be a DateField?
+    date    = models.DateField()
     device_id   = models.CharField(max_length=20)
     device_type = models.CharField(max_length=7)
     status      = models.CharField(max_length=7)
@@ -12,7 +13,7 @@ class Occurance(models.Model):
     @staticmethod
     def from_tuple(timestamp, device_id, device_type, status):
          return Occurance(
-            datetime=datetime.datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ'),
+            date=datetime.datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ').date(),
             device_id=device_id,
             device_type=device_type,
             status=status)
