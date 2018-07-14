@@ -17,15 +17,6 @@ class Occurance(models.Model):
             device_type=device_type,
             status=status)
 
-class SummaryByDay(models.Model):
-    date                 = models.DateField()
-    offline_count_by_day = models.IntegerField(default=0)
-    online_count_by_day  = models.IntegerField(default=0)
-
 def process(filename):
     with open(filename) as csvfile:
         return set(map(tuple, csv.reader(csvfile)))
-
-def createAnSave(tup):
-    rec = Occurance.from_tuple(*(tup))
-    return rec.save()
