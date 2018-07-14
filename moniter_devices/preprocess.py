@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+import os
+import sys
+
 import models.py
 
 filepath = "/Users/syves/github.com/syves/Assignment/moniter_devices/report.csv"
@@ -6,7 +10,7 @@ def createAnSave(tup):
     rec = Occurance.from_tuple(*(tup))
     rec.save()
 
-for tup in process("report.csv"): s = Occurance.from_tuple(*(tup)); s.save()
+for tup in process(filepath): s = Occurance.from_tuple(*(tup)); s.save()
 
 #currently seeding the database in the interactive shell
 

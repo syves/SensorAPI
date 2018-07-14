@@ -39,5 +39,10 @@ Your assignment consists of the following:
     2009-12-01T06:59:22Z,1q2w3e4r,sensor,online
     2009-12-01T06:59:22Z,1q2w3e4r,gateway,offline
 
+### Shakrah's notes.
 
+1. Processing incoming CSV data periodicly.
+If CSV files arrive regularly. They should be uploaded to an AWS. Then a nightly cron job would run the preprocessing job 'preprocess.py' and post records to the db.
+Processing is defined in 'models.py'
 
+2. If this was in production I would enable caching to improve performance time on sql queries.
