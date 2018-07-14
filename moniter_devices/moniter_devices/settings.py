@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.staticfiles',
     'moniter_app.apps.MoniterAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
