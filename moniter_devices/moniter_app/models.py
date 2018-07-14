@@ -4,7 +4,6 @@ import calendar
 import csv
 
 class Occurance(models.Model):
-    #should this be a DateField?
     date    = models.DateField()
     device_id   = models.CharField(max_length=20)
     device_type = models.CharField(max_length=7)
