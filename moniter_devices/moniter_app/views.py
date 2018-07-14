@@ -19,14 +19,14 @@ def get_count_by_day(date):
 
 def index(request):
     occurances = Occurance.objects.values('device_id').distinct()
-    return render(request, 'moniter_app/index.html', {'occurances': occurances})
+    return render(request, 'moniter_app/index.html', {'occurances': occurances, 'days': range(1, 32)})
 
 def date(request, date_string):
     date = datetime.datetime.strptime(date_string, '%Y-%m-%d').date()
     selected_date_data_set = list(get_count_by_day(date).items())
     selected_date_data_set.sort(key=itemgetter(1), reverse=True)
-
     delta_date_data_set = get_count_by_day(date - datetime.timedelta(days=7))
+
     popular = [{'device_id': device_id,
                 'count': count,
                 'change': percentage_change(delta_date_data_set.get(device_id, 0), count),
