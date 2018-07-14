@@ -1,7 +1,30 @@
-<h1>Monitor Devices</h1>
+{% load static %}
 
+<h1>Monitor Devices</h1>
 <h2>10 most "popular" devices by date</h2>
 <h3>Percentage change over 7 days.</h3>
   <a href="/moniter_app/{{datetime}}/results"><h4>Popular Devices</h4></a>
-<h2>Most popular device by status over 30 days<h2/>
+  <h2>Most popular device by status over 30 days<h2/>
   <a href="/moniter_app/{{device_id}}/results"><h4>Device over 30 days<h4/></a>
+
+<div class="dropdown" src="{% static "moniter_app/style.css" %}">
+  <button class="dropbtn" src="{% static "moniter_app/style.css" %}">Dropdown</button>
+  <div class="dropdown-content" src="{% static "moniter_app/style.css" %}">
+    <a href="#" src="{% static "moniter_app/style.css" %}">gateway</a>
+    <div class="dropdown" src="{% static "moniter_app/style.css" %}">
+      <button class="dropbtn" src="{% static "moniter_app/style.css" %}" >Dropdown</button>
+      <div class="dropdown-content" src="{% static "moniter_app/style.css" %}">
+        <a href="#" src="{% static "moniter_app/style.css" %}">online</a>
+        <a href="#" src="{% static "moniter_app/style.css" %}">offline</a>
+      </div>
+    </div>
+    <a href="#">sensor</a>
+    <div class="dropdown">
+      <button class="dropbtn">Dropdown</button>
+      <div class="dropdown-content">
+        <a href="#">online</a>
+        <a href="#">offline</a>
+      </div>
+    </div>
+  </div>
+</div>
