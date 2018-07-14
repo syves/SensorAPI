@@ -1,30 +1,51 @@
+
 {% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <h1>Monitor Devices</h1>
+    <h2>10 most popular devices</h2>
+    <table class="calendar">
+      <thead>
+        <tr>
+          <th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for d in days %}
+            {% if forloop.counter0|divisibleby:7 %}
+              {% if forloop.first %}
+                </tr>
+              {% endif %}
+                <tr>
+            {% endif %}
 
-<h1>Monitor Devices</h1>
-<h2>10 most "popular" devices by date</h2>
-<h3>Percentage change over 7 days.</h3>
-  <a href="/moniter_app/{{datetime}}/results"><h4>Popular Devices</h4></a>
-  <h2>Most popular device by status over 30 days<h2/>
-  <a href="/moniter_app/{{device_id}}/results"><h4>Device over 30 days<h4/></a>
 
-<div class="dropdown" src="{% static "moniter_app/style.css" %}">
-  <button class="dropbtn" src="{% static "moniter_app/style.css" %}">Dropdown</button>
-  <div class="dropdown-content" src="{% static "moniter_app/style.css" %}">
-    <a href="#" src="{% static "moniter_app/style.css" %}">gateway</a>
-    <div class="dropdown" src="{% static "moniter_app/style.css" %}">
-      <button class="dropbtn" src="{% static "moniter_app/style.css" %}" >Dropdown</button>
-      <div class="dropdown-content" src="{% static "moniter_app/style.css" %}">
-        <a href="#" src="{% static "moniter_app/style.css" %}">online</a>
-        <a href="#" src="{% static "moniter_app/style.css" %}">offline</a>
-      </div>
-    </div>
-    <a href="#">sensor</a>
-    <div class="dropdown">
-      <button class="dropbtn">Dropdown</button>
-      <div class="dropdown-content">
-        <a href="#">online</a>
-        <a href="#">offline</a>
-      </div>
-    </div>
-  </div>
-</div>
+            {% with d|stringformat:"02i" as strdate %}
+                {% with "2017-05-"|add:strdate as fulldatestr %}
+                  <td><a href="{% url 'date' fulldatestr %}">{{d}}</a></td>
+                {% endwith %}
+            {% endwith %}
+
+
+
+              {% if forloop.last %}
+                </tr>
+              {% endif %}
+          {% endfor %}
+
+      </tbody>
+    </table>
+
+
+    <h2>Most popular device by status over 30 days<h2/>
+    <ul>
+      <li><a href="{% url 'device' 'gateway' 'online' %}">gateway online</a></li>
+      <li><a href="{% url 'device' 'gateway' 'offline' %}">gateway offline</a></li>
+      <li><a href="{% url 'device' 'sensor' 'online' %}">sensor online</a></li>
+      <li><a href="{% url 'device' 'sensor' 'offline' %}">sensor offline</a></li>
+    </ul>
+  </body>
+</html>
