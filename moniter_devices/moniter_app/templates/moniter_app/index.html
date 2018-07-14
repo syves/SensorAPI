@@ -22,23 +22,18 @@
                 <tr>
             {% endif %}
 
-
             {% with d|stringformat:"02i" as strdate %}
                 {% with "2017-05-"|add:strdate as fulldatestr %}
                   <td><a href="{% url 'date' fulldatestr %}">{{d}}</a></td>
                 {% endwith %}
             {% endwith %}
 
-
-
-              {% if forloop.last %}
-                </tr>
-              {% endif %}
+            {% if forloop.last %}
+              </tr>
+            {% endif %}
           {% endfor %}
-
       </tbody>
     </table>
-
 
     <h2>Most popular device by status over 30 days<h2/>
     <ul>
