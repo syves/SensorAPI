@@ -1,11 +1,18 @@
 #!/usr/bin/env python
 import os
+import django
 import sys
+import json
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "moniter_devices.settings")
+django.setup()
+from moniter_app.models import process
 
-import models.py
+reports_dir = "/Users/syves/github.com/syves/Assignment/moniter_devices/reports/"
+filepath = "/Users/syves/github.com/syves/Assignment/moniter_devices/reports/report.csv"
+target = "/Users/syves/github.com/syves/Assignment/moniter_devices/processed/clean_data.json"
 
-filepath = "/Users/syves/github.com/syves/Assignment/moniter_devices/report.csv"
+for file in os.listdir(reports_dir):
+    with open(target, 'w') as outfile:
+        print(json.dumps(list(process(filepath))), file=outfile)
 
-#maybe split these jobs into two files...
-#save results of preprocess to anotther file.
-for tup in process(filepath): s = Occurance.from_tuple(*(tup)); s.save()
+#If I knew how the incoming reports were named I would create an output file for each report.
