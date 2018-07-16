@@ -41,8 +41,11 @@ Your assignment consists of the following:
 
 ### Shakrah's notes.
 
-1. Processing incoming CSV data periodicly.
-If CSV files arrive regularly. They should be uploaded to an AWS. Then a nightly cron job would run the preprocessing job 'preprocess.py' and post records to the db.
-Processing is defined in 'models.py'
+1. Processing incoming CSV data periodically.
+  * If CSV files arrive regularly. They should be uploaded to an AWS bucket. Then a nightly cron job would run the processing job 'preprocess.py' for each report in reports.
+  Processing is defined in 'models.py'
 
-2. If this was in production I would enable caching to improve performance time on sql queries.
+2. Populate the db.
+  * run store_data.py
+
+3. If this was in production I would enable caching to improve performance time on sql queries. And encrypt secret keys.
