@@ -15,5 +15,3 @@ target = "{}/Assignment/moniter_devices/processed/clean_data.json".format(local_
 for file in os.listdir(reports_dir):
     with open(target, 'w') as outfile:
         print(json.dumps(list(process(filepath))), file=outfile)
-
-#If I knew how the incoming reports were named I would create an output file for each report.
