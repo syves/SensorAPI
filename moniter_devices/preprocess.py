@@ -7,9 +7,10 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "moniter_devices.settings")
 django.setup()
 from moniter_app.models import process
 
-reports_dir = "/Users/syves/github.com/syves/Assignment/moniter_devices/reports/"
-filepath = "/Users/syves/github.com/syves/Assignment/moniter_devices/reports/report.csv"
-target = "/Users/syves/github.com/syves/Assignment/moniter_devices/processed/clean_data.json"
+local_path = "/Users/syves/github.com/syves"
+reports_dir = "{}/Assignment/moniter_devices/reports/".format(local_path)
+filepath = "{}/Assignment/moniter_devices/reports/report.csv".format(local_path)
+target = "{}/Assignment/moniter_devices/processed/clean_data.json".format(local_path)
 
 for file in os.listdir(reports_dir):
     with open(target, 'w') as outfile:
