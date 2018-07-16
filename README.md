@@ -59,3 +59,4 @@ Your assignment consists of the following:
   * And encrypt secret keys.
   * If I knew how the incoming reports were named I would create an output file for each report.
   * DeviceType and Status could have their own models which would guard against invalid values (currently we allow 'busy' or even 'xxx' as a status).
+  * Fix spelling of Occurrence and monitor. :)
